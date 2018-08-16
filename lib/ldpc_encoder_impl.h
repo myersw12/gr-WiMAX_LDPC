@@ -22,26 +22,36 @@
 #define INCLUDED_WIMAXLDPC_LDPC_ENCODER_IMPL_H
 
 #include <wimaxldpc/ldpc_encoder.h>
+#include <wimax_ldpc_lib/lib/enums.h>
+#include <wimax_ldpc_lib/lib/ldpc_encoder.h>
 
 namespace gr {
   namespace wimaxldpc {
 
     class ldpc_encoder_impl : public ldpc_encoder
     {
-     private:
-      // Nothing to declare in this block.
+        private:
+            uint8_t* d_dataword;
+            uint8_t* d_codeword;
+            
+            unsigned int d_codeword_len;
+            
+            coderate d_rate;
+            unsigned int d_z;
+            
+            pmt::pmt_t d_in_port;
+            pmt::pmt_t d_out_port;
+            
+            ldpc_encoder d_encoder;
+            
+        public:
+            ldpc_encoder_impl(unsigned int rate, unsigned int z);
+            ~ldpc_encoder_impl();
+            
+            void handler_dataword(pmt::pmt_t msg);
+      
+      
 
-     public:
-      ldpc_encoder_impl(rate z);
-      ~ldpc_encoder_impl();
-
-      // Where all the action really happens
-      void forecast (int noutput_items, gr_vector_int &ninput_items_required);
-
-      int general_work(int noutput_items,
-           gr_vector_int &ninput_items,
-           gr_vector_const_void_star &input_items,
-           gr_vector_void_star &output_items);
     };
 
   } // namespace wimaxldpc

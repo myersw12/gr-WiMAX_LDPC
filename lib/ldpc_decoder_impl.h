@@ -28,20 +28,26 @@ namespace gr {
 
     class ldpc_decoder_impl : public ldpc_decoder
     {
-     private:
-      // Nothing to declare in this block.
+        private:
+            uint8_t* d_dataword;
+            uint8_t* d_codeword;
+            float*   d_soft_codeword;
+            
+            unsigned int d_dataword_len;
+            
+            bool     d_soft;
+            
+            coderate    d_rate;
+            unsigned int  d_z;
+            
+            ldpc_decoder d_decoder;
 
-     public:
-      ldpc_decoder_impl(rate z max_iterations);
-      ~ldpc_decoder_impl();
+        public:
+            ldpc_decoder_impl(rate z max_iterations);
+            ~ldpc_decoder_impl();
+            
+            void handle_codeword(pmt::pmt_t msg);
 
-      // Where all the action really happens
-      void forecast (int noutput_items, gr_vector_int &ninput_items_required);
-
-      int general_work(int noutput_items,
-           gr_vector_int &ninput_items,
-           gr_vector_const_void_star &input_items,
-           gr_vector_void_star &output_items);
     };
 
   } // namespace wimaxldpc
