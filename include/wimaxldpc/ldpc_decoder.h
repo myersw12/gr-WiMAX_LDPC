@@ -46,7 +46,7 @@ namespace gr {
        * class. wimaxldpc::ldpc_decoder::make is the public interface for
        * creating new instances.
        */
-      static sptr make(rate z max_iterations);
+      static sptr make(unsigned int rate, unsigned int z , unsigned int max_iterations);
     };
 
   } // namespace wimaxldpc

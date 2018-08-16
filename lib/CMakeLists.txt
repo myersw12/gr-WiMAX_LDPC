@@ -20,6 +20,8 @@
 ########################################################################
 # Setup library
 ########################################################################
+set(CMAKE_CXX_FLAGS " -Wall -O3 -std=c++11 -fopenmp")
+
 include(GrPlatform) #define LIB_SUFFIX
 
 include_directories(${Boost_INCLUDE_DIR})
@@ -45,6 +47,11 @@ if(APPLE)
         INSTALL_NAME_DIR "${CMAKE_INSTALL_PREFIX}/lib"
     )
 endif(APPLE)
+
+#######################################################################
+# Add Subdirectories
+#######################################################################
+add_subdirectory(wimax_ldpc_lib)
 
 ########################################################################
 # Install built library files
