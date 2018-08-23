@@ -17,6 +17,11 @@
 # the Free Software Foundation, Inc., 51 Franklin Street,
 # Boston, MA 02110-1301, USA.
 
+#######################################################################
+# Add Subdirectories
+#######################################################################
+#add_subdirectory(wimax_ldpc_lib)
+file(GLOB LIB_SRC_FILES ${CMAKE_CURRENT_SOURCE_DIR}/wimax_ldpc_lib/lib/*.cc)
 ########################################################################
 # Setup library
 ########################################################################
@@ -24,12 +29,15 @@ set(CMAKE_CXX_FLAGS " -Wall -O3 -std=c++11 -fopenmp")
 
 include(GrPlatform) #define LIB_SUFFIX
 
-include_directories(${Boost_INCLUDE_DIR})
+include_directories(${Boost_INCLUDE_DIR}
+                    ${WIMAX_INCLUDE_DIRS})
+                    
 link_directories(${Boost_LIBRARY_DIRS})
 
 list(APPEND wimaxldpc_sources
     ldpc_encoder_impl.cc
     ldpc_decoder_impl.cc
+    ${LIB_SRC_FILES}
 )
 
 set(wimaxldpc_sources "${wimaxldpc_sources}" PARENT_SCOPE)
@@ -48,10 +56,7 @@ if(APPLE)
     )
 endif(APPLE)
 
-#######################################################################
-# Add Subdirectories
-#######################################################################
-add_subdirectory(wimax_ldpc_lib)
+
 
 ########################################################################
 # Install built library files
@@ -78,7 +83,6 @@ target_link_libraries(
   ${GNURADIO_RUNTIME_LIBRARIES}
   ${Boost_LIBRARIES}
   ${CPPUNIT_LIBRARIES}
-  gnuradio-wimaxldpc
 )
 
 GR_ADD_TEST(test_wimaxldpc test-wimaxldpc)

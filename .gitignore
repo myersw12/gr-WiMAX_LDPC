@@ -3,3 +3,4 @@ build/*
 *.swo
 *.pyc
 *.out
+examples/top_block.py

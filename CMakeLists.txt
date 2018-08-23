@@ -92,9 +92,10 @@ if(NOT Boost_FOUND)
     message(FATAL_ERROR "Boost required to compile wimaxldpc")
 endif()
 
+
 ########################################################################
 # Install directories
-########################################################################
+#################################CMAKE_INSTALL_PREFIX#######################################
 include(GrPlatform) #define LIB_SUFFIX
 set(GR_RUNTIME_DIR      bin)
 set(GR_LIBRARY_DIR      lib${LIB_SUFFIX})
@@ -168,12 +169,14 @@ include_directories(
     ${Boost_INCLUDE_DIRS}
     ${CPPUNIT_INCLUDE_DIRS}
     ${GNURADIO_ALL_INCLUDE_DIRS}
+    ${CMAKE_SOURCE_DIR}/lib/wimax_ldpc_lib
 )
 
 link_directories(
     ${Boost_LIBRARY_DIRS}
     ${CPPUNIT_LIBRARY_DIRS}
     ${GNURADIO_RUNTIME_LIBRARY_DIRS}
+    ${CMAKE_SOURCE_DIR}/lib/wimax_ldpc_lib
 )
 
 # Set component parameters

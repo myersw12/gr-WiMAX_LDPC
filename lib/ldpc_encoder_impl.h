@@ -35,6 +35,7 @@ namespace gr {
             uint8_t* d_codeword;
             
             unsigned int d_codeword_len;
+            unsigned int d_dataword_len;
             
             coderate d_rate;
             unsigned int d_z;
@@ -42,13 +43,13 @@ namespace gr {
             pmt::pmt_t d_in_port;
             pmt::pmt_t d_out_port;
             
-            ldpc_encoder d_encoder;
+            wimax_ldpc_lib::ldpc_encoder *d_encoder;
             
         public:
-            ldpc_encoder_impl(unsigned int rate, unsigned int z);
+            ldpc_encoder_impl(unsigned int rate, unsigned int z, unsigned int num_threads);
             ~ldpc_encoder_impl();
             
-            void handler_dataword(pmt::pmt_t msg);
+            void handle_dataword(pmt::pmt_t msg);
       
       
 

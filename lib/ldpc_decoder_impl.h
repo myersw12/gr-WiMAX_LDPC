@@ -22,6 +22,8 @@
 #define INCLUDED_WIMAXLDPC_LDPC_DECODER_IMPL_H
 
 #include <wimaxldpc/ldpc_decoder.h>
+#include <wimax_ldpc_lib/lib/enums.h>
+#include <wimax_ldpc_lib/lib/ldpc_decoder.h>
 
 namespace gr {
   namespace wimaxldpc {
@@ -34,16 +36,24 @@ namespace gr {
             float*   d_soft_codeword;
             
             unsigned int d_dataword_len;
+            unsigned int d_max_iterations;
+            unsigned int  d_z;
             
             bool     d_soft;
             
             coderate    d_rate;
-            unsigned int  d_z;
             
-            ldpc_decoder d_decoder;
+            pmt::pmt_t d_in_port;
+            pmt::pmt_t d_out_port;
+            
+            //wimax_ldpc_lib::ldpc_decoder *d_decoder;
 
         public:
-            ldpc_decoder_impl(rate z max_iterations);
+            ldpc_decoder_impl(unsigned int rate, unsigned int z,
+                              unsigned int max_iterations,
+                              bool soft,
+                              unsigned int num_threads);
+            
             ~ldpc_decoder_impl();
             
             void handle_codeword(pmt::pmt_t msg);

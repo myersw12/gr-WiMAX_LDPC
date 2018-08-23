@@ -32,10 +32,11 @@ namespace gr {
     ldpc_decoder::make(unsigned int rate,
                        unsigned int z,
                        unsigned int max_iterations,
-                       bool soft)
+                       bool soft,
+                       unsigned int num_threads)
     {
       return gnuradio::get_initial_sptr
-        (new ldpc_decoder_impl(rate, z, max_iterations, soft));
+        (new ldpc_decoder_impl(rate, z, max_iterations, soft, num_threads));
     }
 
     /*
@@ -44,7 +45,8 @@ namespace gr {
     ldpc_decoder_impl::ldpc_decoder_impl(unsigned int rate,
                                          unsigned int z,
                                          unsigned int max_iterations,
-                                         bool soft)
+                                         bool soft,
+                                         unsigned int num_threads)
       : gr::block("ldpc_decoder",
               gr::io_signature::make(0, 0, 0),
               gr::io_signature::make(0, 0, 0))
@@ -64,7 +66,7 @@ namespace gr {
         
         set_msg_handler(d_in_port, boost::bind(&ldpc_decoder_impl::handle_codeword, this, _1));
 
-        d_decoder = ldpc_decoder(rate, z, d_max_iterations);
+        //d_decoder = new wimax_ldpc_lib::ldpc_decoder(d_rate, z, d_max_iterations, num_threads);
         
         switch(rate)
         {
@@ -124,9 +126,11 @@ namespace gr {
         else
             free(d_codeword);
         
+        //delete d_decoder;
+        
     }
     
-    ldpc_decoder_impl::handle_codeword(pmt::pmt_t msg)
+    void ldpc_decoder_impl::handle_codeword(pmt::pmt_t msg)
     {
         unsigned int packet_len = 0;
         
@@ -134,11 +138,11 @@ namespace gr {
         {
             pmt::pmt_t r_packet_len = pmt::dict_ref(pmt::car(msg), pmt::mp("packet_len"), pmt::PMT_NIL);
         
-            if (pmt::is_integer(r_packet_len)
+            if (pmt::is_integer(r_packet_len))
                 packet_len = pmt::to_long(r_packet_len);
             else
             {
-                printf("[!] ldpc_encoder_impl.cc - invalid packet len\n");
+                printf("[!] ldpc_decoder_impl.cc - invalid packet len\n");
                 return;
             }
             
@@ -153,14 +157,16 @@ namespace gr {
             }
             else
             {
-                printf("[!] ldpc_encoder_impl.cc - invalid data blob\n");
+                printf("[!] ldpc_decoder_impl.cc - invalid data blob\n");
                 return;
             }
             
+            /*
             if(d_soft)
-                d_decoder.decode(d_soft_codeword, d_codeword);
+                d_decoder->decode(d_soft_codeword, d_codeword);
             else
-                d_decoder.decode(d_codeword, d_codeword);
+                d_decoder->decode(d_codeword, d_codeword);
+            */
             
             pmt::pmt_t meta = pmt::make_dict();
             meta = pmt::dict_add(meta, pmt::mp("packet_len"), pmt::from_long(d_dataword_len));
