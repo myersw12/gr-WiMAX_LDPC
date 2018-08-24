@@ -21,7 +21,8 @@
 # Add Subdirectories
 #######################################################################
 #add_subdirectory(wimax_ldpc_lib)
-file(GLOB LIB_SRC_FILES ${CMAKE_CURRENT_SOURCE_DIR}/wimax_ldpc_lib/lib/*.cc)
+
+file(GLOB MAT_SRC_FILES ${CMAKE_CURRENT_SOURCE_DIR}/wimax_ldpc_lib/lib/matrices/*.cc)
 ########################################################################
 # Setup library
 ########################################################################
@@ -30,14 +31,22 @@ set(CMAKE_CXX_FLAGS " -Wall -O3 -std=c++11 -fopenmp")
 include(GrPlatform) #define LIB_SUFFIX
 
 include_directories(${Boost_INCLUDE_DIR}
-                    ${WIMAX_INCLUDE_DIRS})
+                    ${WIMAX_INCLUDE_DIRS}
+                    ${CMAKE_CURRENT_SOURCE_DIR}/wimax_ldpc_lib/include
+                    ${GSL_INCLUDE_DIRS}
+                    )
                     
-link_directories(${Boost_LIBRARY_DIRS})
+link_directories(${Boost_LIBRARY_DIRS}
+                 ${GSL_LIBRARY_DIRS}
+                 )
 
 list(APPEND wimaxldpc_sources
     ldpc_encoder_impl.cc
     ldpc_decoder_impl.cc
-    ${LIB_SRC_FILES}
+    ${MAT_SRC_FILES}
+    ${CMAKE_CURRENT_SOURCE_DIR}/wimax_ldpc_lib/lib/ldpc.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/wimax_ldpc_lib/lib/ldpc_encoder.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/wimax_ldpc_lib/lib/ldpc_decoder.cc
 )
 
 set(wimaxldpc_sources "${wimaxldpc_sources}" PARENT_SCOPE)
@@ -47,7 +56,7 @@ if(NOT wimaxldpc_sources)
 endif(NOT wimaxldpc_sources)
 
 add_library(gnuradio-wimaxldpc SHARED ${wimaxldpc_sources})
-target_link_libraries(gnuradio-wimaxldpc ${Boost_LIBRARIES} ${GNURADIO_ALL_LIBRARIES})
+target_link_libraries(gnuradio-wimaxldpc ${Boost_LIBRARIES} ${GNURADIO_ALL_LIBRARIES} ${GSL_LIBRARIES})
 set_target_properties(gnuradio-wimaxldpc PROPERTIES DEFINE_SYMBOL "gnuradio_wimaxldpc_EXPORTS")
 
 if(APPLE)

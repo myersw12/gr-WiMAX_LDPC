@@ -135,6 +135,7 @@ endif(APPLE)
 ########################################################################
 find_package(CppUnit)
 find_package(Doxygen)
+find_package(GSL)
 
 # Search for GNU Radio and its components and versions. Add any
 # components required to the list of GR_REQUIRED_COMPONENTS (in all
@@ -170,6 +171,7 @@ include_directories(
     ${CPPUNIT_INCLUDE_DIRS}
     ${GNURADIO_ALL_INCLUDE_DIRS}
     ${CMAKE_SOURCE_DIR}/lib/wimax_ldpc_lib
+    ${GSL_INCLUDE_DIRS}
 )
 
 link_directories(

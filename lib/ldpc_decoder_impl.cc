@@ -66,7 +66,7 @@ namespace gr {
         
         set_msg_handler(d_in_port, boost::bind(&ldpc_decoder_impl::handle_codeword, this, _1));
 
-        //d_decoder = new wimax_ldpc_lib::ldpc_decoder(d_rate, z, d_max_iterations, num_threads);
+        d_decoder = new wimax_ldpc_lib::ldpc_decoder(d_rate, z, d_max_iterations, num_threads);
         
         switch(rate)
         {
@@ -126,7 +126,7 @@ namespace gr {
         else
             free(d_codeword);
         
-        //delete d_decoder;
+        delete d_decoder;
         
     }
     
@@ -136,7 +136,7 @@ namespace gr {
         
         if (pmt::is_pair(msg))
         {
-            pmt::pmt_t r_packet_len = pmt::dict_ref(pmt::car(msg), pmt::mp("packet_len"), pmt::PMT_NIL);
+            pmt::pmt_t r_packet_len = pmt::dict_ref(pmt::car(msg), pmt::mp("pdu_length"), pmt::PMT_NIL);
         
             if (pmt::is_integer(r_packet_len))
                 packet_len = pmt::to_long(r_packet_len);
@@ -161,12 +161,12 @@ namespace gr {
                 return;
             }
             
-            /*
+            
             if(d_soft)
                 d_decoder->decode(d_soft_codeword, d_codeword);
             else
                 d_decoder->decode(d_codeword, d_codeword);
-            */
+            
             
             pmt::pmt_t meta = pmt::make_dict();
             meta = pmt::dict_add(meta, pmt::mp("packet_len"), pmt::from_long(d_dataword_len));

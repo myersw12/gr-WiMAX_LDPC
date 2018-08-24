@@ -22,8 +22,8 @@
 #define INCLUDED_WIMAXLDPC_LDPC_DECODER_IMPL_H
 
 #include <wimaxldpc/ldpc_decoder.h>
-#include <wimax_ldpc_lib/lib/enums.h>
-#include <wimax_ldpc_lib/lib/ldpc_decoder.h>
+#include <wimax_ldpc_lib/include/enums.h>
+#include <wimax_ldpc_lib/include/ldpc_decoder.h>
 
 namespace gr {
   namespace wimaxldpc {
@@ -46,7 +46,7 @@ namespace gr {
             pmt::pmt_t d_in_port;
             pmt::pmt_t d_out_port;
             
-            //wimax_ldpc_lib::ldpc_decoder *d_decoder;
+            wimax_ldpc_lib::ldpc_decoder *d_decoder;
 
         public:
             ldpc_decoder_impl(unsigned int rate, unsigned int z,

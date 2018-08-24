@@ -43,6 +43,7 @@ namespace gr {
               gr::io_signature::make(0, 0, 0),
               gr::io_signature::make(0, 0, 0))
     {
+        
         d_rate = (coderate)rate;
         d_z = z;
         

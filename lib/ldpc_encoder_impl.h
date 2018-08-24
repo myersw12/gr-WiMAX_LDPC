@@ -22,8 +22,8 @@
 #define INCLUDED_WIMAXLDPC_LDPC_ENCODER_IMPL_H
 
 #include <wimaxldpc/ldpc_encoder.h>
-#include <wimax_ldpc_lib/lib/enums.h>
-#include <wimax_ldpc_lib/lib/ldpc_encoder.h>
+#include <wimax_ldpc_lib/include/enums.h>
+#include <wimax_ldpc_lib/include/ldpc_encoder.h>
 
 namespace gr {
   namespace wimaxldpc {
