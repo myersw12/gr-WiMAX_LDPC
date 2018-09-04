@@ -56,7 +56,7 @@ namespace gr {
         d_max_iterations = max_iterations;
         d_soft = soft;
         
-        unsigned int codeword_len = (d_z / 96.0) * BASE_LDPC_BLOCK_LEN;
+        d_codeword_len = (d_z / 96.0) * BASE_LDPC_BLOCK_LEN;
         
         d_in_port = pmt::mp("in");
         d_out_port = pmt::mp("out");
@@ -72,27 +72,27 @@ namespace gr {
         {
             case (HALFRATE):
             {
-                d_dataword_len = codeword_len / 2; 
+                d_dataword_len = d_codeword_len / 2; 
                 break;
             }
             
             case (TWOTHIRDSA):
             case (TWOTHIRDSB):
             {
-                d_dataword_len = (codeword_len * 2) / 3;
+                d_dataword_len = (d_codeword_len * 2) / 3;
                 break;
             }
             
             case (THREEQUARTERSA):
             case (THREEQUARTERSB):
             {
-                d_dataword_len = (codeword_len * 3) / 4;
+                d_dataword_len = (d_codeword_len * 3) / 4;
                 break;
             }
             
             case (FIVESIXTHS):
             {
-                d_dataword_len = (codeword_len * 5) / 6;
+                d_dataword_len = (d_codeword_len * 5) / 6;
                 break;
             }
             
@@ -107,9 +107,9 @@ namespace gr {
         d_dataword = (uint8_t*)malloc(d_dataword_len * sizeof(uint8_t));
         
         if(d_soft)
-            d_codeword = (uint8_t*)malloc(codeword_len * sizeof(uint8_t));
+            d_codeword = (uint8_t*)malloc(d_codeword_len * sizeof(uint8_t));
         else
-            d_soft_codeword = (float*)malloc(codeword_len * sizeof(float));
+            d_soft_codeword = (float*)malloc(d_codeword_len * sizeof(float));
 
         
     }
@@ -133,40 +133,33 @@ namespace gr {
     void ldpc_decoder_impl::handle_codeword(pmt::pmt_t msg)
     {
         unsigned int packet_len = 0;
+        unsigned int scale = 1;
+        
+        if(d_soft)
+            scale = 4;
         
         if (pmt::is_pair(msg))
         {
-            pmt::pmt_t r_packet_len = pmt::dict_ref(pmt::car(msg), pmt::mp("pdu_length"), pmt::PMT_NIL);
-        
-            if (pmt::is_integer(r_packet_len))
-                packet_len = pmt::to_long(r_packet_len);
-            else
+            pmt::pmt_t pdu_meta = pmt::car(msg);
+            pmt::pmt_t pdu_data = pmt::cdr(msg);
+            
+            packet_len = pmt::blob_length(pdu_data);
+            
+            if ((packet_len/scale) != d_codeword_len)
             {
-                printf("[!] ldpc_decoder_impl.cc - invalid packet len\n");
+                printf("[!] ldpc_decoder_impl.cc - invalid packet len: %d\n", packet_len);
                 return;
             }
             
-            pmt::pmt_t r_data_blob = pmt::cdr(msg);
-            
-            if (pmt::is_blob(r_data_blob))
-            {   
-                if(d_soft)
-                    d_soft_codeword = (float*)pmt::blob_data(r_data_blob);
-                else
-                    d_codeword = (uint8_t*)pmt::blob_data(r_data_blob);
-            }
+            if(d_soft)
+                d_soft_codeword = (float*)pmt::blob_data(pdu_data);
             else
-            {
-                printf("[!] ldpc_decoder_impl.cc - invalid data blob\n");
-                return;
-            }
-            
+                d_codeword = (uint8_t*)pmt::blob_data(pdu_data);
             
             if(d_soft)
                 d_decoder->decode(d_soft_codeword, d_codeword);
             else
                 d_decoder->decode(d_codeword, d_codeword);
-            
             
             pmt::pmt_t meta = pmt::make_dict();
             meta = pmt::dict_add(meta, pmt::mp("packet_len"), pmt::from_long(d_dataword_len));

@@ -36,6 +36,7 @@ namespace gr {
             float*   d_soft_codeword;
             
             unsigned int d_dataword_len;
+            unsigned int d_codeword_len;
             unsigned int d_max_iterations;
             unsigned int  d_z;
             

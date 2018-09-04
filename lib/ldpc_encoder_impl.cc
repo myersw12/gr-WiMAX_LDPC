@@ -128,10 +128,8 @@ namespace gr {
                 return;
             }
             
-            pmt::pmt_t r_data_blob = pmt::cdr(msg);
-            
-            if (pmt::is_blob(r_data_blob))
-                d_dataword = (uint8_t*)pmt::blob_data(r_data_blob);
+            if (pmt::is_blob(pdu_data))
+                d_dataword = (uint8_t*)pmt::blob_data(pdu_data);
             else
             {
                 printf("[!] ldpc_encoder_impl.cc - invalid data blob\n");
