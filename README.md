@@ -24,7 +24,9 @@ The codes provided by this project are from the WiMAX Standard (802.16e).  The 8
  
  * ldpc_encoder_example.grc - Simple example of using the ldpc_encoder block to encode pdu messages
  * ldpc_encoder_decoder_example.grc - Similar to the above example, adds the ldpc_decoder block.
- * ldpc_BER_example.grc - Requires the gr-mapper OOT module.  This is a modified version of the prbs_test.grc flowgraph found within the gr-mapper OOT module.  The ldpc_encoder and ldpc_decoder blocks are added to give the flowgraph some FEC.  It is fun to compare the Bit Error Rate (BER) with and without LDPC as well as between different LDPC rates.
+ * ldpc_mapper_BER_example.grc - Requires the gr-mapper OOT module.  This is a modified version of the prbs_test.grc flowgraph found within the gr-mapper OOT module.  The ldpc_encoder and ldpc_decoder blocks are added to give the flowgraph some FEC.  It is fun to compare the Bit Error Rate (BER) with and without LDPC as well as between different LDPC rates.
+ * ldpc_BER_example.grc - Requires the gr-mapper OOT module.  Example flowgraph to play around with BER rates.  The receiver from the flowgraph above is removed so that only the LDPC codes are tested.
+ * QPSK_BER_example.grc - Requires the gr-mapper OOT module.  This is a plain QPSK reference for the above flowgraph.  Compare the results of the two to see the improvement given by the LDPC FEC.
  
  ## Installation
  
