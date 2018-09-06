@@ -13,8 +13,8 @@ The codes provided by this project are from the WiMAX Standard (802.16e).  The 8
 
 ##  Requirements
 
-  * GNURadio v3.7.10+
-  * gr-mapper (used for BER example)
+  * [GNURadio v3.7.10+](https://github.com/gnuradio/gnuradio)
+  * [gr-mapper](https://github.com/gr-vt/gr-mapper) (used for BER example)
   
   Please see the wimax_ldpc_lib [README](https://github.com/myersw12/wimax_ldpc_lib/blob/master/README.md) for additional requirements.
   
@@ -27,6 +27,26 @@ The codes provided by this project are from the WiMAX Standard (802.16e).  The 8
  * ldpc_mapper_BER_example.grc - Requires the gr-mapper OOT module.  This is a modified version of the prbs_test.grc flowgraph found within the gr-mapper OOT module.  The ldpc_encoder and ldpc_decoder blocks are added to give the flowgraph some FEC.  It is fun to compare the Bit Error Rate (BER) with and without LDPC as well as between different LDPC rates.
  * ldpc_BER_example.grc - Requires the gr-mapper OOT module.  Example flowgraph to play around with BER rates.  The receiver from the flowgraph above is removed so that only the LDPC codes are tested.
  * QPSK_BER_example.grc - Requires the gr-mapper OOT module.  This is a plain QPSK reference for the above flowgraph.  Compare the results of the two to see the improvement given by the LDPC FEC.
+ 
+## BER Theory
+The Bit Error Rate (BER) of a digital transmission system is the rate at which errors occur during transmission.  These errors are caused due to noise, interference, and imperfections in either the transmitter or receiver.  The BER of a system is one of the most fundamental ways to measure performance.
+ 
+There are two types of examples provided with this project that give BER results for the LDPC codes.  The first, ldpc_mapper_BER_example.grc, provides an example of a simple transmitter/receiver over a channel.  The BER measurements from this flowgraph are with respect to SNR and show the performance of the receiver and LDPC codes.
+
+The second, ldpc_BER_example.grc and QPSK_BER_example.grc, provide an example of QPSK over Additive Gaussian White Noise (AWGN).  There are no imperfections in the transmitter or receiver, so these provide an results that closely match the theoretical predictions.  For reference, theoretical BER plots are shown below.
+ ![alt text](https://github.com/myersw12/gr-WiMAX_LDPC/blob/master/docs/ber_plots.png)
+ 
+The plots are given by the following equations:
+
+![alt text](https://github.com/myersw12/gr-WiMAX_LDPC/blob/master/docs/bpsk.gif)
+
+![alt text](https://github.com/myersw12/gr-WiMAX_LDPC/blob/master/docs/qpsk.gif)
+
+![alt text](https://github.com/myersw12/gr-WiMAX_LDPC/blob/master/docs/mqam.gif)
+
+![alt text](https://github.com/myersw12/gr-WiMAX_LDPC/blob/master/docs/erfc.gif)
+
+![alt text](https://github.com/myersw12/gr-WiMAX_LDPC/blob/master/docs/bits_per_sym.gif)
  
  ## Installation
  
