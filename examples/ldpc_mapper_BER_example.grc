@@ -89,7 +89,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>1</value>
+      <value>10</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -97,7 +97,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(888, 8)</value>
+      <value>(8, 504)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -109,42 +109,15 @@
     </param>
     <param>
       <key>id</key>
-      <value>EbN0</value>
+      <value>SNR</value>
     </param>
     <param>
       <key>label</key>
-      <value>EbN0</value>
+      <value>SNR</value>
     </param>
     <param>
       <key>type</key>
       <value>real</value>
-    </param>
-  </block>
-  <block>
-    <key>variable</key>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(1032, 12)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>EbNo_linear</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>10.0**(EbN0/10.0)</value>
     </param>
   </block>
   <block>
@@ -175,12 +148,14 @@
     </param>
   </block>
   <block>
-    <key>variable</key>
+    <key>variable_qtgui_range</key>
     <param>
       <key>comment</key>
-      <value>Make sure to change this
-if you change the modulation
-scheme.</value>
+      <value></value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>0</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -188,7 +163,11 @@ scheme.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1144, 12)</value>
+      <value>(8, 384)</value>
+    </param>
+    <param>
+      <key>gui_hint</key>
+      <value></value>
     </param>
     <param>
       <key>_rotation</key>
@@ -196,11 +175,39 @@ scheme.</value>
     </param>
     <param>
       <key>id</key>
-      <value>bits_per_sym</value>
+      <value>cfo</value>
     </param>
     <param>
-      <key>value</key>
-      <value>2</value>
+      <key>label</key>
+      <value>Freq Offset</value>
+    </param>
+    <param>
+      <key>min_len</key>
+      <value>200</value>
+    </param>
+    <param>
+      <key>orient</key>
+      <value>Qt.Horizontal</value>
+    </param>
+    <param>
+      <key>start</key>
+      <value>-1e-1</value>
+    </param>
+    <param>
+      <key>step</key>
+      <value>1e-3</value>
+    </param>
+    <param>
+      <key>stop</key>
+      <value>1e-1</value>
+    </param>
+    <param>
+      <key>rangeType</key>
+      <value>float</value>
+    </param>
+    <param>
+      <key>widget</key>
+      <value>counter_slider</value>
     </param>
   </block>
   <block>
@@ -269,6 +276,60 @@ scheme.</value>
     </param>
     <param>
       <key>_coordinate</key>
+      <value>(888, 4)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>pream</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>(mapper.preamble_generator(preamble_len,511,1033)).get_preamble()</value>
+    </param>
+  </block>
+  <block>
+    <key>variable</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(888, 68)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>preamble_len</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>32</value>
+    </param>
+  </block>
+  <block>
+    <key>variable</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
       <value>(688, 4)</value>
     </param>
     <param>
@@ -281,7 +342,34 @@ scheme.</value>
     </param>
     <param>
       <key>value</key>
-      <value>1.0/2.0</value>
+      <value>2.0/3.0</value>
+    </param>
+  </block>
+  <block>
+    <key>variable</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1224, 4)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>samp_per_sym</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>2</value>
     </param>
   </block>
   <block>
@@ -312,6 +400,69 @@ scheme.</value>
     </param>
   </block>
   <block>
+    <key>variable_qtgui_range</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(8, 264)</value>
+    </param>
+    <param>
+      <key>gui_hint</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>sro</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>Sample Rate Offset</value>
+    </param>
+    <param>
+      <key>min_len</key>
+      <value>200</value>
+    </param>
+    <param>
+      <key>orient</key>
+      <value>Qt.Horizontal</value>
+    </param>
+    <param>
+      <key>start</key>
+      <value>-1e-1</value>
+    </param>
+    <param>
+      <key>step</key>
+      <value>1e-3</value>
+    </param>
+    <param>
+      <key>stop</key>
+      <value>1e-1</value>
+    </param>
+    <param>
+      <key>rangeType</key>
+      <value>float</value>
+    </param>
+    <param>
+      <key>widget</key>
+      <value>counter_slider</value>
+    </param>
+  </block>
+  <block>
     <key>variable</key>
     <param>
       <key>comment</key>
@@ -335,113 +486,7 @@ scheme.</value>
     </param>
     <param>
       <key>value</key>
-      <value>96</value>
-    </param>
-  </block>
-  <block>
-    <key>analog_noise_source_x</key>
-    <param>
-      <key>amp</key>
-      <value>(1/np.sqrt(EbNo_linear))  * np.sqrt(1.0/bits_per_sym)</value>
-    </param>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(1072, 296)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>180</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>analog_noise_source_x_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>noise_type</key>
-      <value>analog.GR_GAUSSIAN</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>complex</value>
-    </param>
-    <param>
-      <key>seed</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_add_xx</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(856, 280)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>180</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>blocks_add_xx_0</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>complex</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>num_inputs</key>
-      <value>2</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
+      <value>24</value>
     </param>
   </block>
   <block>
@@ -458,7 +503,7 @@ ldpc decoder is expecting.</value>
     </param>
     <param>
       <key>const</key>
-      <value>-1.0</value>
+      <value>-1</value>
     </param>
     <param>
       <key>affinity</key>
@@ -470,7 +515,7 @@ ldpc decoder is expecting.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(728, 372)</value>
+      <value>(824, 524)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -564,7 +609,7 @@ ldpc decoder is expecting.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(712, 484)</value>
+      <value>(808, 636)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -666,7 +711,7 @@ ldpc decoder is expecting.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(472, 364)</value>
+      <value>(568, 516)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -768,7 +813,7 @@ ldpc decoder is expecting.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(904, 372)</value>
+      <value>(1000, 524)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -851,38 +896,70 @@ ldpc decoder is expecting.</value>
     </param>
   </block>
   <block>
-    <key>import</key>
+    <key>channels_channel_model</key>
     <param>
       <key>alias</key>
       <value></value>
+    </param>
+    <param>
+      <key>block_tags</key>
+      <value>False</value>
     </param>
     <param>
       <key>comment</key>
       <value></value>
     </param>
     <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>1</value>
+    </param>
+    <param>
+      <key>epsilon</key>
+      <value>1.0+sro</value>
+    </param>
+    <param>
+      <key>freq_offset</key>
+      <value>cfo</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(8, 68)</value>
+      <value>(1072, 376)</value>
     </param>
     <param>
       <key>_rotation</key>
-      <value>0</value>
+      <value>180</value>
     </param>
     <param>
       <key>id</key>
-      <value>import_0</value>
+      <value>channels_channel_model_0</value>
     </param>
     <param>
-      <key>import</key>
-      <value>from cmath import exp, pi; from random import randint; import numpy as np;</value>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>noise_voltage</key>
+      <value>(10**(-SNR/10.0))*np.sqrt(samp_per_sym)</value>
+    </param>
+    <param>
+      <key>seed</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>taps</key>
+      <value>[1]</value>
     </param>
   </block>
   <block>
-    <key>mapper_demapper_soft</key>
+    <key>digital_clock_recovery_mm_xx</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -901,15 +978,23 @@ ldpc decoder is expecting.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(208, 364)</value>
+      <value>(288, 408)</value>
     </param>
     <param>
       <key>_rotation</key>
-      <value>0</value>
+      <value>180</value>
+    </param>
+    <param>
+      <key>gain_mu</key>
+      <value>0.175</value>
+    </param>
+    <param>
+      <key>gain_omega</key>
+      <value>0.000001</value>
     </param>
     <param>
       <key>id</key>
-      <value>mapper_demapper_soft_0</value>
+      <value>digital_clock_recovery_mm_xx_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -920,12 +1005,102 @@ ldpc decoder is expecting.</value>
       <value>0</value>
     </param>
     <param>
-      <key>modtype</key>
-      <value>mapper.QPSK</value>
+      <key>mu</key>
+      <value>0.5</value>
     </param>
     <param>
-      <key>symbol_values</key>
-      <value>[0,1,3,2]</value>
+      <key>omega_relative_limit</key>
+      <value>0.005</value>
+    </param>
+    <param>
+      <key>omega</key>
+      <value>samp_per_sym*(1+0.0)</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+  </block>
+  <block>
+    <key>digital_costas_loop_cc</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(584, 344)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>180</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>digital_costas_loop_cc_0</value>
+    </param>
+    <param>
+      <key>w</key>
+      <value>1e-8</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>order</key>
+      <value>4</value>
+    </param>
+    <param>
+      <key>use_snr</key>
+      <value>False</value>
+    </param>
+  </block>
+  <block>
+    <key>import</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1064, 4)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>import_0</value>
+    </param>
+    <param>
+      <key>import</key>
+      <value>from cmath import exp, pi; from random import randint; import numpy as np;</value>
     </param>
   </block>
   <block>
@@ -948,11 +1123,11 @@ ldpc decoder is expecting.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1072, 236)</value>
+      <value>(800, 276)</value>
     </param>
     <param>
       <key>_rotation</key>
-      <value>180</value>
+      <value>0</value>
     </param>
     <param>
       <key>id</key>
@@ -995,7 +1170,7 @@ ldpc decoder is expecting.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(464, 476)</value>
+      <value>(560, 628)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1062,6 +1237,120 @@ ldpc decoder is expecting.</value>
     </param>
   </block>
   <block>
+    <key>mapper_preamble_insert_bb</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(576, 276)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>mapper_preamble_insert_bb_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>preamble</key>
+      <value>pream</value>
+    </param>
+    <param>
+      <key>width</key>
+      <value>int(codeword_len) + preamble_len</value>
+    </param>
+  </block>
+  <block>
+    <key>mapper_preamble_sync_demapper</key>
+    <param>
+      <key>acquire_bit_thresh</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>loose_bit_thresh</key>
+      <value>3</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(288, 516)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>mapper_preamble_sync_demapper_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>modtype</key>
+      <value>mapper.QPSK</value>
+    </param>
+    <param>
+      <key>passthrough</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>preamble</key>
+      <value>pream</value>
+    </param>
+    <param>
+      <key>symbol_map</key>
+      <value>[0,1,3,2]</value>
+    </param>
+    <param>
+      <key>width</key>
+      <value>int(codeword_len) + preamble_len</value>
+    </param>
+  </block>
+  <block>
     <key>qtgui_const_sink_x</key>
     <param>
       <key>autoscale</key>
@@ -1089,7 +1378,7 @@ ldpc decoder is expecting.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(600, 224)</value>
+      <value>(288, 336)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -1097,7 +1386,7 @@ ldpc decoder is expecting.</value>
     </param>
     <param>
       <key>_rotation</key>
-      <value>180</value>
+      <value>0</value>
     </param>
     <param>
       <key>grid</key>
@@ -1361,7 +1650,7 @@ ldpc decoder is expecting.</value>
     </param>
     <param>
       <key>size</key>
-      <value>int(codeword_len)</value>
+      <value>840-84</value>
     </param>
     <param>
       <key>tr_chan</key>
@@ -1432,7 +1721,7 @@ ldpc decoder is expecting.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(232, 432)</value>
+      <value>(320, 648)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -1604,7 +1893,7 @@ ldpc decoder is expecting.</value>
     </param>
     <param>
       <key>samp_rate</key>
-      <value>1</value>
+      <value>samp_rate</value>
     </param>
     <param>
       <key>type</key>
@@ -1616,6 +1905,148 @@ ldpc decoder is expecting.</value>
     </param>
   </block>
   <block>
+    <key>root_raised_cosine_filter</key>
+    <param>
+      <key>alpha</key>
+      <value>0.35</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>decim</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>interp_fir_filter_ccf</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1072, 248)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>gain</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>root_raised_cosine_filter_0</value>
+    </param>
+    <param>
+      <key>interp</key>
+      <value>samp_per_sym</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>ntaps</key>
+      <value>11</value>
+    </param>
+    <param>
+      <key>samp_rate</key>
+      <value>samp_rate</value>
+    </param>
+    <param>
+      <key>sym_rate</key>
+      <value>samp_rate/samp_per_sym</value>
+    </param>
+  </block>
+  <block>
+    <key>root_raised_cosine_filter</key>
+    <param>
+      <key>alpha</key>
+      <value>0.35</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>decim</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>interp_fir_filter_ccf</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(832, 368)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>180</value>
+    </param>
+    <param>
+      <key>gain</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>root_raised_cosine_filter_0_0</value>
+    </param>
+    <param>
+      <key>interp</key>
+      <value>samp_per_sym*0+1</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>ntaps</key>
+      <value>11</value>
+    </param>
+    <param>
+      <key>samp_rate</key>
+      <value>samp_rate</value>
+    </param>
+    <param>
+      <key>sym_rate</key>
+      <value>samp_rate/samp_per_sym</value>
+    </param>
+  </block>
+  <block>
     <key>wimaxldpc_ldpc_decoder</key>
     <param>
       <key>alias</key>
@@ -1623,7 +2054,7 @@ ldpc decoder is expecting.</value>
     </param>
     <param>
       <key>rate</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>comment</key>
@@ -1639,7 +2070,7 @@ ldpc decoder is expecting.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(992, 456)</value>
+      <value>(1088, 608)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1682,7 +2113,7 @@ ldpc decoder is expecting.</value>
     </param>
     <param>
       <key>rate</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>comment</key>
@@ -1726,24 +2157,6 @@ ldpc decoder is expecting.</value>
     </param>
   </block>
   <connection>
-    <source_block_id>analog_noise_source_x_0</source_block_id>
-    <sink_block_id>blocks_add_xx_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_add_xx_0</source_block_id>
-    <sink_block_id>mapper_demapper_soft_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_add_xx_0</source_block_id>
-    <sink_block_id>qtgui_const_sink_x_0_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
     <source_block_id>blocks_multiply_const_vxx_0</source_block_id>
     <sink_block_id>blocks_tagged_stream_to_pdu_1</sink_block_id>
     <source_key>0</source_key>
@@ -1751,7 +2164,7 @@ ldpc decoder is expecting.</value>
   </connection>
   <connection>
     <source_block_id>blocks_pdu_to_tagged_stream_0</source_block_id>
-    <sink_block_id>mapper_mapper_0</sink_block_id>
+    <sink_block_id>mapper_preamble_insert_bb_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -1792,26 +2205,68 @@ ldpc decoder is expecting.</value>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>mapper_demapper_soft_0</source_block_id>
-    <sink_block_id>blocks_stream_to_tagged_stream_1</sink_block_id>
+    <source_block_id>channels_channel_model_0</source_block_id>
+    <sink_block_id>root_raised_cosine_filter_0_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>mapper_demapper_soft_0</source_block_id>
-    <sink_block_id>qtgui_time_raster_sink_x_0_1</sink_block_id>
+    <source_block_id>digital_clock_recovery_mm_xx_0</source_block_id>
+    <sink_block_id>mapper_preamble_sync_demapper_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>digital_clock_recovery_mm_xx_0</source_block_id>
+    <sink_block_id>qtgui_const_sink_x_0_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>digital_costas_loop_cc_0</source_block_id>
+    <sink_block_id>digital_clock_recovery_mm_xx_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>mapper_mapper_0</source_block_id>
-    <sink_block_id>blocks_add_xx_0</sink_block_id>
+    <sink_block_id>root_raised_cosine_filter_0</sink_block_id>
     <source_key>0</source_key>
-    <sink_key>1</sink_key>
+    <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>mapper_prbs_source_b_0</source_block_id>
     <sink_block_id>blocks_throttle_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>mapper_preamble_insert_bb_0</source_block_id>
+    <sink_block_id>mapper_mapper_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>mapper_preamble_sync_demapper_0</source_block_id>
+    <sink_block_id>blocks_stream_to_tagged_stream_1</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>mapper_preamble_sync_demapper_0</source_block_id>
+    <sink_block_id>qtgui_time_raster_sink_x_0_1</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>root_raised_cosine_filter_0</source_block_id>
+    <sink_block_id>channels_channel_model_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>root_raised_cosine_filter_0_0</source_block_id>
+    <sink_block_id>digital_costas_loop_cc_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
