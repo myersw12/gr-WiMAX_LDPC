@@ -89,7 +89,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>2.5</value>
+      <value>2</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -1353,7 +1353,7 @@ ldpc decoder is expecting.</value>
     </param>
     <param>
       <key>name</key>
-      <value>QT GUI Plot</value>
+      <value>Constellation Plot</value>
     </param>
     <param>
       <key>nconnections</key>
@@ -1584,7 +1584,7 @@ ldpc decoder is expecting.</value>
     </param>
     <param>
       <key>name</key>
-      <value>""</value>
+      <value>"Received Bit Raster"</value>
     </param>
     <param>
       <key>ncols</key>

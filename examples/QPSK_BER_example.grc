@@ -18,7 +18,8 @@
     </param>
     <param>
       <key>comment</key>
-      <value></value>
+      <value>This flowgraph is a testbed for playing with
+Bit Error Rates (BER) for BPSK, QPSK, and 8PSK.</value>
     </param>
     <param>
       <key>description</key>
@@ -89,7 +90,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>0</value>
+      <value>2</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -97,7 +98,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(896, 8)</value>
+      <value>(432, 8)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -132,7 +133,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1008, 12)</value>
+      <value>(544, 12)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -151,33 +152,6 @@
     <key>variable</key>
     <param>
       <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(256, 4)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>base_ldpc_block_len</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>2304</value>
-    </param>
-  </block>
-  <block>
-    <key>variable</key>
-    <param>
-      <key>comment</key>
       <value>Make sure to change this
 if you change the modulation
 scheme.</value>
@@ -188,7 +162,7 @@ scheme.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1104, 12)</value>
+      <value>(648, 12)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -215,34 +189,7 @@ scheme.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(472, 4)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>codeword_len</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>(z_factor / 96.0) * base_ldpc_block_len</value>
-    </param>
-  </block>
-  <block>
-    <key>variable</key>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(584, 4)</value>
+      <value>(328, 4)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -254,7 +201,7 @@ scheme.</value>
     </param>
     <param>
       <key>value</key>
-      <value>codeword_len * rate</value>
+      <value>1152</value>
     </param>
   </block>
   <block>
@@ -269,34 +216,7 @@ scheme.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(688, 4)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>rate</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>1.0/2.0</value>
-    </param>
-  </block>
-  <block>
-    <key>variable</key>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(784, 4)</value>
+      <value>(232, 4)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -309,33 +229,6 @@ scheme.</value>
     <param>
       <key>value</key>
       <value>3200000</value>
-    </param>
-  </block>
-  <block>
-    <key>variable</key>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(392, 4)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>z_factor</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>96</value>
     </param>
   </block>
   <block>
@@ -362,7 +255,7 @@ scheme.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(696, 280)</value>
+      <value>(696, 288)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -413,7 +306,7 @@ scheme.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(528, 248)</value>
+      <value>(528, 256)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -464,7 +357,7 @@ scheme.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(656, 124)</value>
+      <value>(656, 132)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -519,7 +412,7 @@ scheme.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(528, 364)</value>
+      <value>(528, 372)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -543,7 +436,7 @@ scheme.</value>
     </param>
     <param>
       <key>packet_len</key>
-      <value>int(codeword_len)</value>
+      <value>int(dataword_len)</value>
     </param>
     <param>
       <key>type</key>
@@ -574,7 +467,7 @@ scheme.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(464, 132)</value>
+      <value>(464, 140)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -629,7 +522,7 @@ scheme.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(800, 376)</value>
+      <value>(800, 384)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -664,7 +557,7 @@ scheme.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(8, 68)</value>
+      <value>(272, 68)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -699,7 +592,7 @@ scheme.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(264, 364)</value>
+      <value>(264, 372)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -746,7 +639,7 @@ scheme.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(696, 220)</value>
+      <value>(696, 228)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -793,7 +686,7 @@ scheme.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(976, 364)</value>
+      <value>(976, 372)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -832,7 +725,7 @@ scheme.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(256, 124)</value>
+      <value>(256, 132)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -887,7 +780,7 @@ scheme.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(232, 192)</value>
+      <value>(232, 200)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -1151,7 +1044,7 @@ scheme.</value>
     </param>
     <param>
       <key>name</key>
-      <value>QT GUI Plot</value>
+      <value>Constellation Plot</value>
     </param>
     <param>
       <key>nconnections</key>
@@ -1159,7 +1052,7 @@ scheme.</value>
     </param>
     <param>
       <key>size</key>
-      <value>int(codeword_len)</value>
+      <value>int(dataword_len)</value>
     </param>
     <param>
       <key>tr_chan</key>
@@ -1230,7 +1123,7 @@ scheme.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(288, 432)</value>
+      <value>(288, 440)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -1382,11 +1275,11 @@ scheme.</value>
     </param>
     <param>
       <key>name</key>
-      <value>""</value>
+      <value>"Received Bit Raster"</value>
     </param>
     <param>
       <key>ncols</key>
-      <value>int(codeword_len) </value>
+      <value>int(dataword_len) </value>
     </param>
     <param>
       <key>nrows</key>

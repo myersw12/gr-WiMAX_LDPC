@@ -297,7 +297,7 @@ scheme.</value>
     </param>
     <param>
       <key>max_iter</key>
-      <value>50</value>
+      <value>10</value>
     </param>
     <param>
       <key>ndim</key>
@@ -605,7 +605,7 @@ scheme.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(712, 508)</value>
+      <value>(840, 452)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -915,7 +915,7 @@ scheme.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(968, 500)</value>
+      <value>(1096, 444)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1150,7 +1150,7 @@ scheme.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(464, 500)</value>
+      <value>(592, 444)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1508,7 +1508,7 @@ scheme.</value>
     </param>
     <param>
       <key>name</key>
-      <value>QT GUI Plot</value>
+      <value>Constellation Plot</value>
     </param>
     <param>
       <key>nconnections</key>
@@ -1739,7 +1739,7 @@ scheme.</value>
     </param>
     <param>
       <key>name</key>
-      <value>""</value>
+      <value>"Received Bit raster"</value>
     </param>
     <param>
       <key>ncols</key>
