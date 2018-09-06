@@ -74,8 +74,13 @@ namespace gr {
                 break;
             }
             
-            case (THREEQUARTERSA):
             case (THREEQUARTERSB):
+            {
+                printf("[!]test_encoder - Not implemented: %d\n", rate);
+                throw std::exception();
+                break;   
+            }
+            case (THREEQUARTERSA):
             {
                 d_dataword_len = (d_codeword_len * 3) / 4;
                 break;

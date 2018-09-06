@@ -89,7 +89,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>1</value>
+      <value>3.5</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -281,7 +281,7 @@ scheme.</value>
     </param>
     <param>
       <key>value</key>
-      <value>1.0/2.0</value>
+      <value>2.0/3.0</value>
     </param>
   </block>
   <block>
@@ -342,7 +342,7 @@ scheme.</value>
     <key>analog_noise_source_x</key>
     <param>
       <key>amp</key>
-      <value>(1/np.sqrt(EbNo_linear))  * np.sqrt(1.0/bits_per_sym)</value>
+      <value>(1/np.sqrt(EbNo_linear))  * np.sqrt(1.0/(rate*bits_per_sym))</value>
     </param>
     <param>
       <key>alias</key>
@@ -1623,7 +1623,7 @@ ldpc decoder is expecting.</value>
     </param>
     <param>
       <key>rate</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>comment</key>
@@ -1682,7 +1682,7 @@ ldpc decoder is expecting.</value>
     </param>
     <param>
       <key>rate</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>comment</key>

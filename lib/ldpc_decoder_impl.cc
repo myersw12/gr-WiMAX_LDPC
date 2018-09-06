@@ -84,11 +84,6 @@ namespace gr {
             }
             
             case (THREEQUARTERSB):
-            {
-                printf("[!]test_encoder - Not implemented: %d\n", rate);
-                throw std::exception();
-                break;   
-            }
             case (THREEQUARTERSA):
             {
                 d_dataword_len = (d_codeword_len * 3) / 4;
@@ -140,8 +135,9 @@ namespace gr {
         unsigned int packet_len = 0;
         unsigned int scale = 1;
         
+        // if we are dealing with floats, divide by the size of a float
         if(d_soft)
-            scale = 4;
+            scale = sizeof(float);
         
         if (pmt::is_pair(msg))
         {
