@@ -31,8 +31,7 @@ namespace gr {
     class ldpc_decoder_impl : public ldpc_decoder
     {
         private:
-            uint8_t* d_dataword;
-            uint8_t* d_codeword;
+            int8_t* d_codeword;
             float*   d_soft_codeword;
             
             unsigned int d_dataword_len;

@@ -104,10 +104,9 @@ namespace gr {
             }
         }
         
-        d_dataword = (uint8_t*)malloc(d_dataword_len * sizeof(uint8_t));
         
         if(d_soft)
-            d_codeword = (uint8_t*)malloc(d_codeword_len * sizeof(uint8_t));
+            d_codeword = (int8_t*)malloc(d_codeword_len * sizeof(uint8_t));
         else
             d_soft_codeword = (float*)malloc(d_codeword_len * sizeof(float));
 
@@ -119,7 +118,6 @@ namespace gr {
      */
     ldpc_decoder_impl::~ldpc_decoder_impl()
     {
-        free(d_dataword);
         
         if(d_soft)
             free(d_soft_codeword);
@@ -155,7 +153,7 @@ namespace gr {
             if(d_soft)
                 d_soft_codeword = (float*)pmt::blob_data(pdu_data);
             else
-                d_codeword = (uint8_t*)pmt::blob_data(pdu_data);
+                d_codeword = (int8_t*)pmt::blob_data(pdu_data);
             
             if(d_soft)
                 d_decoder->decode(d_soft_codeword, d_codeword);
