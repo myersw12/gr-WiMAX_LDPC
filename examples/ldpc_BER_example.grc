@@ -89,7 +89,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>1.5</value>
+      <value>1.9</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -200,7 +200,7 @@ scheme.</value>
     </param>
     <param>
       <key>value</key>
-      <value>2</value>
+      <value>1</value>
     </param>
   </block>
   <block>
@@ -358,11 +358,11 @@ scheme.</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>1</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1072, 296)</value>
+      <value>(1224, 296)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -370,7 +370,7 @@ scheme.</value>
     </param>
     <param>
       <key>id</key>
-      <value>analog_noise_source_x_0</value>
+      <value>analog_noise_source_x_0_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -848,7 +848,7 @@ scheme.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(208, 364)</value>
+      <value>(224, 364)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -868,11 +868,11 @@ scheme.</value>
     </param>
     <param>
       <key>modtype</key>
-      <value>mapper.QPSK</value>
+      <value>mapper.BPSK</value>
     </param>
     <param>
       <key>symbol_values</key>
-      <value>[0,1,3,2]</value>
+      <value>[0,1]</value>
     </param>
   </block>
   <block>
@@ -915,11 +915,11 @@ scheme.</value>
     </param>
     <param>
       <key>modtype</key>
-      <value>mapper.QPSK</value>
+      <value>mapper.BPSK</value>
     </param>
     <param>
       <key>symbol_values</key>
-      <value>[0,1,3,2]</value>
+      <value>[0,1]</value>
     </param>
   </block>
   <block>
@@ -1880,7 +1880,7 @@ scheme.</value>
     </param>
   </block>
   <connection>
-    <source_block_id>analog_noise_source_x_0</source_block_id>
+    <source_block_id>analog_noise_source_x_0_0</source_block_id>
     <sink_block_id>blocks_add_xx_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
