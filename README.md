@@ -53,7 +53,7 @@ The plots are given by the following equations:
  
  To install the OOT module, perform the following steps:
 
-   * clone the repository: git clone https://github.com/myersw12/gr-WiMAX_LDPC.git
+   * clone the repository: git clone --recursive https://github.com/myersw12/gr-WiMAX_LDPC.git
    * create the build directory: cd gr-WiMAX_LDPC && mkdir build && cd build
    * run cmake: cmake ../
    * run make: make -j4
