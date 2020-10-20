@@ -15,7 +15,7 @@ The codes provided by this project are from the WiMAX Standard (802.16e).  The 8
 
   * [GNURadio v3.8.0.0+](https://github.com/gnuradio/gnuradio)
   * [Wimax LDPC Library](https://github.com/myersw12/wimax_ldpc_lib)
-  <!--- * [gr-mapper](https://github.com/gr-vt/gr-mapper) (used for BER example) --->
+  * [gr-mapper]https://github.com/myersw12/gr-mapper) (used for BER examples)
   
   The master branch supports GNURadio V3.8 and later.  If you are still using GNURadio V3.7, please see the v3.7 branch.
   
@@ -25,13 +25,10 @@ The codes provided by this project are from the WiMAX Standard (802.16e).  The 8
  
  * ldpc_encoder_example.grc - Simple example of using the ldpc_encoder block to encode pdu messages
  * ldpc_encoder_decoder_example.grc - Similar to the above example, adds the ldpc_decoder block.
- 
- <!---
  * ldpc_mapper_BER_example.grc - Requires the gr-mapper OOT module.  This is a modified version of the prbs_test.grc flowgraph found within the gr-mapper OOT module.  The ldpc_encoder and ldpc_decoder blocks are added to give the flowgraph some FEC.  It is fun to compare the Bit Error Rate (BER) with and without LDPC as well as between different LDPC rates.
  * ldpc_BER_example.grc - Requires the gr-mapper OOT module.  Example flowgraph to play around with BER rates.  The receiver from the flowgraph above is removed so that only the LDPC codes are tested.
  * QPSK_BER_example.grc - Requires the gr-mapper OOT module.  This is a plain QPSK reference for the above flowgraph.  Compare the results of the two to see the improvement given by the LDPC FEC.
- * gnuradio_ldpc_BER_example.grc - Requires the gr-mapper OOT module.  BER rates using the default LDPC encoder/decoder provided by GNURadio.  
- --->
+ * gnuradio_ldpc_BER_example.grc - Requires the gr-mapper OOT module.  BER rates using the default LDPC encoder/decoder provided by GNURadio.
  
 ## BER Theory
 The Bit Error Rate (BER) of a digital transmission system is the rate at which errors occur during transmission.  These errors are caused due to noise, interference, and imperfections in either the transmitter or receiver.  The BER of a system is one of the most fundamental ways to measure performance.
