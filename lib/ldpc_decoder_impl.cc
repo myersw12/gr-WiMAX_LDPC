@@ -26,7 +26,7 @@
 #include "ldpc_decoder_impl.h"
 
 namespace gr {
-  namespace wimaxldpc {
+  namespace WiMAX_LDPC {
 
     ldpc_decoder::sptr
     ldpc_decoder::make(unsigned int rate,
@@ -175,6 +175,6 @@ namespace gr {
 
 
 
-  } /* namespace wimaxldpc */
+  } /* namespace WiMAX_LDPC */
 } /* namespace gr */
 

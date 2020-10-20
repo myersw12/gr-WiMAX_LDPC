@@ -21,12 +21,13 @@
 #ifndef INCLUDED_WIMAXLDPC_LDPC_DECODER_IMPL_H
 #define INCLUDED_WIMAXLDPC_LDPC_DECODER_IMPL_H
 
-#include <wimaxldpc/ldpc_decoder.h>
-#include <wimax_ldpc_lib/include/enums.h>
-#include <wimax_ldpc_lib/include/ldpc_decoder.h>
+
+#include <WiMAX_LDPC/ldpc_decoder.h>
+
+#include <wimax_ldpc_lib/ldpc_decoder.h>
 
 namespace gr {
-  namespace wimaxldpc {
+  namespace WiMAX_LDPC {
 
     class ldpc_decoder_impl : public ldpc_decoder
     {
@@ -60,8 +61,7 @@ namespace gr {
 
     };
 
-  } // namespace wimaxldpc
+  } // namespace WiMAX_LDPC
 } // namespace gr
 
 #endif /* INCLUDED_WIMAXLDPC_LDPC_DECODER_IMPL_H */
-

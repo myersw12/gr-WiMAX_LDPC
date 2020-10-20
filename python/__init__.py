@@ -19,16 +19,17 @@
 # The presence of this file turns this directory into a Python package
 
 '''
-This is the GNU Radio WIMAXLDPC module. Place your Python package
+This is the GNU Radio WIMAX_LDPC module. Place your Python package
 description here (python/__init__.py).
 '''
+from __future__ import unicode_literals
 
-# import swig generated symbols into the wimaxldpc namespace
+# import swig generated symbols into the WiMAX_LDPC namespace
 try:
-	# this might fail if the module is python-only
-	from wimaxldpc_swig import *
+    # this might fail if the module is python-only
+    from .WiMAX_LDPC_swig import *
 except ImportError:
-	pass
+    pass
 
 # import any pure python here
 #

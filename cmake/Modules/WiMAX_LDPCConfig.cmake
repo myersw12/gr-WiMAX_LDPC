@@ -1,0 +1,31 @@
+INCLUDE(FindPkgConfig)
+PKG_CHECK_MODULES(PC_WIMAX_LDPC WiMAX_LDPC)
+
+FIND_PATH(
+    WIMAX_LDPC_INCLUDE_DIRS
+    NAMES WiMAX_LDPC/api.h
+    HINTS $ENV{WIMAX_LDPC_DIR}/include
+        ${PC_WIMAX_LDPC_INCLUDEDIR}
+    PATHS ${CMAKE_INSTALL_PREFIX}/include
+          /usr/local/include
+          /usr/include
+)
+
+FIND_LIBRARY(
+    WIMAX_LDPC_LIBRARIES
+    NAMES gnuradio-WiMAX_LDPC
+    HINTS $ENV{WIMAX_LDPC_DIR}/lib
+        ${PC_WIMAX_LDPC_LIBDIR}
+    PATHS ${CMAKE_INSTALL_PREFIX}/lib
+          ${CMAKE_INSTALL_PREFIX}/lib64
+          /usr/local/lib
+          /usr/local/lib64
+          /usr/lib
+          /usr/lib64
+          )
+
+include("${CMAKE_CURRENT_LIST_DIR}/WiMAX_LDPCTarget.cmake")
+
+INCLUDE(FindPackageHandleStandardArgs)
+FIND_PACKAGE_HANDLE_STANDARD_ARGS(WIMAX_LDPC DEFAULT_MSG WIMAX_LDPC_LIBRARIES WIMAX_LDPC_INCLUDE_DIRS)
+MARK_AS_ADVANCED(WIMAX_LDPC_LIBRARIES WIMAX_LDPC_INCLUDE_DIRS)
