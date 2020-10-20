@@ -11,12 +11,11 @@ The codes provided by this project are from the WiMAX Standard (802.16e).  The 8
   * 3/4A
   * 5/6
 
-##  Requirements
+##  Dependencies
 
   * [GNURadio v3.8.0.0+](https://github.com/gnuradio/gnuradio)
+  * [Wimax LDPC Library](https://github.com/myersw12/wimax_ldpc_lib)
   <!--- * [gr-mapper](https://github.com/gr-vt/gr-mapper) (used for BER example) --->
-  
-  Please see the wimax_ldpc_lib [README](https://github.com/myersw12/wimax_ldpc_lib/blob/master/README.md) for additional requirements.
   
   The master branch supports GNURadio V3.8 and later.  If you are still using GNURadio V3.7, please see the v3.7 branch.
   
@@ -58,7 +57,8 @@ The plots are given by the following equations:
  
  To install the OOT module, perform the following steps:
 
-   * clone the repository: git clone --recursive https://github.com/myersw12/gr-WiMAX_LDPC.git
+   * install dependencies
+   * clone the repository: git clone https://github.com/myersw12/gr-WiMAX_LDPC.git
    * create the build directory: cd gr-WiMAX_LDPC && mkdir build && cd build
    * run cmake: cmake ../
    * run make: make -j4
