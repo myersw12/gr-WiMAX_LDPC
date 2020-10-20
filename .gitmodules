@@ -1,3 +1,0 @@
-[submodule "lib/wimax_ldpc_lib"]
-	path = lib/wimax_ldpc_lib
-	url = git@github.com:myersw12/wimax_ldpc_lib.git
