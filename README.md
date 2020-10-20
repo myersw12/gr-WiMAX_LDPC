@@ -15,7 +15,7 @@ The codes provided by this project are from the WiMAX Standard (802.16e).  The 8
 
   * [GNURadio v3.8.0.0+](https://github.com/gnuradio/gnuradio)
   * [Wimax LDPC Library](https://github.com/myersw12/wimax_ldpc_lib)
-  * [gr-mapper]https://github.com/myersw12/gr-mapper) (used for BER examples)
+  * [gr-mapper](https://github.com/myersw12/gr-mapper) (used for BER examples)
   
   The master branch supports GNURadio V3.8 and later.  If you are still using GNURadio V3.7, please see the v3.7 branch.
   
